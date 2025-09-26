@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import path from "path";
+import path from 'path';
 import user_routes from './routes/user.js';
 import product_routes from './routes/product.js';
 import order_routes from './routes/order.js';
