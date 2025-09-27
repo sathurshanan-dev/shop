@@ -9,7 +9,8 @@
     "server": "nodemon server/index",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server \" \"npm run client\"",
-    "data:import": "node server/seeder"
+    "data:import": "node server/seeder",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "author": "Sathurshanan",
   "license": "ISC",
