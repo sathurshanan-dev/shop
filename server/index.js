@@ -8,6 +8,8 @@ import connect_db from './config/db.js';
 import { not_found, error_handler } from './middleware/error.js';
 import stripe_route from './routes/stripe.js';
 
+const port = process.env.PORT || 4000;
+
 connect_db();
 
 const app = express();
@@ -34,4 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(not_found);
 app.use(error_handler);
 
-app.listen(4000, console.log('Server running on port 4000'));
+app.listen(
+  4000,
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
+);
