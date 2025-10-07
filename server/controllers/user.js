@@ -49,7 +49,7 @@ const register = asyncHandler(async (req, res) => {
   }
 });
 
-const profile = asyncHandler(async (req, res) => {
+const get_profile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id).select('-password');
   if (user) {
     res.json(user);
@@ -80,4 +80,4 @@ const update_profile = asyncHandler(async (req, res) => {
   }
 });
 
-export { login, register, profile, update_profile };
+export { login, register, get_profile, update_profile };

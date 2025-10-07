@@ -40,7 +40,7 @@ const create_order = asyncHandler(async (req, res) => {
   }
 });
 
-const order_by_id = asyncHandler(async (req, res) => {
+const get_order_by_id = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     'user',
     'name email'
@@ -53,12 +53,12 @@ const order_by_id = asyncHandler(async (req, res) => {
   }
 });
 
-const my_orders = asyncHandler(async (req, res) => {
+const get_my_orders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id });
   res.json(orders);
 });
 
-const order_to_paid = asyncHandler(async (req, res) => {
+const set_order_to_paid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.body.order_id);
   if (order) {
     const line_items = order.items.map((item) => ({
@@ -92,4 +92,4 @@ const order_to_paid = asyncHandler(async (req, res) => {
   }
 });
 
-export { create_order, order_by_id, my_orders, order_to_paid };
+export { create_order, get_order_by_id, get_my_orders, set_order_to_paid };
